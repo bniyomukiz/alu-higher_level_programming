@@ -12,4 +12,4 @@ elif Last_digit < 6 and Last_digit != 0:
     msg = 'Last digit of {0} is {1} and is less than 6 and not 0'
 else:
     msg = 'Last digit of {0} is {1} and is 0'
-    print(msg.format(number, Last_digit))
+print(msg.format(number, Last_digit))
