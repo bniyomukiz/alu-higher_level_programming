@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-letters = 'abcdefghijklmnopqrstuvwxyz'
-print('\n',letters, end=' ')
+for a in range(97, 123):
+    print('{:c}'.format(a), end='')
