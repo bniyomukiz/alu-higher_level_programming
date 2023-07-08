@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
+Last_digit = 0
 if number > 0:
     Last_digit = number % 10
 elif number < 0:
