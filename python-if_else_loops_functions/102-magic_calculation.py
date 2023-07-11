@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def magic_calculation(a, b, c):
-    """function that creates a copy of the string, removing the character at the position n"""
+    """function that creates a copy of the string,"""
     if a < b:
         return (c)
     if c > b:
