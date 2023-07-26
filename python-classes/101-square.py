@@ -1,77 +1,53 @@
 #!/usr/bin/python3
-
-
-"""The summary line for a class docstring should fit on one line.
-
-    If the class has public attributes, they may be documented here
-    in an ``Attributes`` section and follow the same formatting as a
-    function's ``Args`` section. Alternatively, attributes may be documented
-    inline with the attribute's declaration (see __init__ method below).
-
-    Properties created with the ``@property`` decorator should be documented
-    in the property's getter method.
-
-    Attributes:
-        attr1 (str): Description of `attr1`.
-
-    """
-
-
 class Square:
-    """The summary line for a class docstring should fit on one line."""
-
+    """Defines a square"""
     def __init__(self, size=0, position=(0, 0)):
-        """The summary line for a class docstring should fit on one line."""
+        """Initialises the data"""
         self.size = size
         self.position = position
 
-    @property
-    def size(self):
-        """The summary line for a class docstring should fit on one line."""
-        return self.__size
+    def area(self):
+        """Returns current square area"""
+        return self.__size**2
 
     @property
-    def position(self):
-        """The summary line for a class docstring should fit on one line."""
-        return self.__position
+    def size(self):
+        """Getter method"""
+        return self.__size
 
     @size.setter
     def size(self, value):
-        """The summary line for a class docstring should fit on one line."""
-        if type(value) is not int:
+        """Setter method"""
+        self.__size = value
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        elif value < 0:
-                raise ValueError("size must be >= 0")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+
+    def my_print(self):
+        """Prints the square"""
+        if self.__size == 0:
+            print()
         else:
-            self.__size = value
+            for y in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for x in range(self.__position[0]):
+                    print(' ', end='')
+                for j in range(self.__size):
+                    print('#', end='')
+                print()
+
+    @property
+    def position(self):
+        """Getter method"""
+        return self.__position
 
     @position.setter
     def position(self, value):
-        """The summary line for a class docstring should fit on one line."""
-        str = "position must be a tuple of 2 positive integers"
-        if (type(value) is not tuple or len(value) != 2 or
-                type(value[0]) is not int or
-                type(value[1]) is not int or
-                value[0] < 0 or value[1] < 0):
-                raise TypeError(str)
-        else:
-            self.__position = value
-
-    def area(self):
-        """The summary line for a class docstring should fit on one line."""
-        return (self.__size ** 2)
-
-    def my_print(self):
-        if self.__size is 0:
-            print()
-        else:
-            print('\n' * self.__position[1], end="")
-            for i in range(self.__size):
-                print(" " * self.__position[0], end="")
-                print("#" * self.__size, end="")
-                if i != self.__size - 1:
-                    print()
-        return ""
-
-    def __str__(self):
-        return str(self.my_print())
+        """Setter method"""
+        if type(value) != tuple or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if any(type(i) != int for i in value) or any(j < 0 for j in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
