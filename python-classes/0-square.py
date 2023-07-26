@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Example Google style docstrings."""
 
 class Square:
