@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+"""
+This is a python file that
+has a class
+"""
 
-
-"""Example Google style docstrings."""
 
 class Square:
-
-    """The summary line for a class docstr"""
-
+    """
+    This is an empty class square
+    """
     pass
