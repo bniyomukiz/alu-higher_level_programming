@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-"""Defines an inherited list class MyList."""
+class BaseGeometry:
+    """BaseGeometry class
+    """
+    def area(self):
+        """Raises an Exception
+        """
+        raise Exception("area() is not implemented")
 
-
-class MyList(list):
-    """Implements sorted printing for the built-in list class."""
-
-    def print_sorted(self):
-        """Print a list in sorted ascending order."""
-        print(sorted(self))
+    def integer_validator(self, name, value):
+        """Validates value
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
