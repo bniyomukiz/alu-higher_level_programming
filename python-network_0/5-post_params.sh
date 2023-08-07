@@ -1,3 +1,3 @@
 #!/bin/bash
-#make a post request with email an subject as params
-curl -s -d "email=hr@holbertonschool.com&subject=I will always be here for PLD" "$1"
+# Send the POST request with the specified variables and display the body of the response
+curl -s -X POST -d "email=test@gmail.com&subject=I%20will%20always%20be%20here%20for%20PLD" "$1"
