@@ -1,14 +1,19 @@
 #!/usr/bin/node
 
-const request = require('request');
+const fs = require('fs');
 
-function callback (error, response) {
-  if (!error) {
-    console.log(`code: ${response.statusCode}`);
-  }
+function writeFile (filePath, content) {
+  fs.writeFile(filePath, content, 'utf-8', (err) => {
+    if (err) {
+      console.error(`An error occurred while writing to the file: ${err}`);
+    }
+  });
 }
 
-if (process.argv.length === 3) {
-  const url = process.argv[2];
-  request.get(url, callback);
+if (process.argv.length > 3) {
+  const filePath = process.argv[2];
+  const content = process.argv[3];
+  writeFile(filePath, content);
+} else {
+  console.log('provide the file path and content as arguments.');
 }
